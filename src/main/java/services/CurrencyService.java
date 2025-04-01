@@ -1,6 +1,8 @@
 package services;
 
 import DTO.CurrencyDTO;
+import Interfeces.Convert;
+import Interfeces.Reader;
 import Models.Currency;
 import Validations.CurrencyValidation;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -10,7 +12,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class CurrencyService {
+public class CurrencyService implements Convert, Reader {
     private final Currency currency = new Currency();
 
     public void read() throws JsonProcessingException {
