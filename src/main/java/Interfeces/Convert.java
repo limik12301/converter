@@ -1,7 +1,9 @@
 package Interfeces;
 
+import DTO.CurrencyDTO;
+import Models.CurrencyInput;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
 public interface Convert {
-    Double convert(String currencyCode, Double value) throws JsonProcessingException;
+    Double currencyConvert(CurrencyInput currencyInput, CurrencyDTO currencyDTO) throws JsonProcessingException;
 }
