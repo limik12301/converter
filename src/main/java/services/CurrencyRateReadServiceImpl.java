@@ -1,18 +1,18 @@
-package Impl;
+package services;
 
-import DTO.CurrencyRateDTO;
+import dto.CurrencyRateDTO;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import services.CurrencyRateService;
 
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class CurrencyRateServiceImpl implements CurrencyRateService {
+public class CurrencyRateReadServiceImpl implements CurrencyRateReadService {
+    private CurrencyRateDTO currencyRateDTO = new CurrencyRateDTO();
 
     @Override
-    public CurrencyRateDTO getCurrencyRate() throws JsonProcessingException {
+    public void readCurrencyRate(){
         String fileURL = ("C:\\Users\\nastya\\IdeaProjects\\converter\\src\\main\\resources\\value.json");
         StringBuilder jsonObject = new StringBuilder();
         try (FileReader fr = new FileReader(fileURL)) {
@@ -23,6 +23,15 @@ public class CurrencyRateServiceImpl implements CurrencyRateService {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        return new ObjectMapper().readValue(jsonObject.toString(), CurrencyRateDTO.class);
+        try {
+            this.currencyRateDTO = new ObjectMapper().readValue(jsonObject.toString(), CurrencyRateDTO.class);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public CurrencyRateDTO showCurrencyRate() {
+        return currencyRateDTO;
     }
 }
