@@ -1,12 +1,12 @@
 package Models;
 
-public class CurrencyInput {
+public class UserInput {
     public String currencyCode;
     public Double value;
 
-    public CurrencyInput() {}
+    public UserInput() {}
 
-    public CurrencyInput(String currencyCode, Double value) {
+    public UserInput(String currencyCode, Double value) {
         this.currencyCode = currencyCode;
         this.value = value;
     }

@@ -1,14 +1,14 @@
 package Models;
 
 
-public class Currency {
+public class CurrencyRate {
     private Double eur;
     private Double usd;
 
-    public Currency(){
+    public CurrencyRate(){
     }
 
-    public Currency(Double eur, Double usd) {
+    public CurrencyRate(Double eur, Double usd) {
         this.eur = eur;
         this.usd = usd;
     }

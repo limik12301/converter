@@ -1,27 +1,14 @@
-
-import DTO.CurrencyDTO;
-import Interfeces.Convert;
-import Interfeces.CurrencyInputService;
-import Interfeces.Reader;
-import Models.CurrencyInput;
+import Impl.CurrencyConvertServiceImpl;
+import Impl.UserInterfaceServiceImpl;
+import Models.UserInput;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import services.CurrencyConvertService;
-import services.CurrencyInputServiceImpl;
-import services.ReaderService;
-
-import java.io.FileNotFoundException;
-import java.util.Scanner;
+import services.UserInterfaceService;
 
 public class Converter {
-    public static void main(String[] args) throws FileNotFoundException, JsonProcessingException {
-        CurrencyInputService inputService = new CurrencyInputServiceImpl();
-        CurrencyInput currencyInput = inputService.currencyInput();
-
-        Reader reader = new ReaderService();
-        CurrencyDTO currencyDTO = reader.read();
-
-        Convert converter = new CurrencyConvertService();
-
-        System.out.println(converter.currencyConvert(currencyInput, currencyDTO));
+    public static void main(String[] args) throws JsonProcessingException {
+        UserInterfaceService userInterfaceService = new UserInterfaceServiceImpl();
+        CurrencyConvertService currencyConvertService = new CurrencyConvertServiceImpl();
+        System.out.println(currencyConvertService.currencyConvertRub(userInterfaceService.getUserInput()));
     }
 }

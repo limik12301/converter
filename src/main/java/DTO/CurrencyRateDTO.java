@@ -1,14 +1,14 @@
 package DTO;
 
 
-public class CurrencyDTO {
+public class CurrencyRateDTO {
     private Double eur;
     private Double usd;
 
-    public CurrencyDTO(){
+    public CurrencyRateDTO(){
     }
 
-    public CurrencyDTO(Double eur, Double usd) {
+    public CurrencyRateDTO(Double eur, Double usd) {
         this.eur = eur;
         this.usd = usd;
     }
