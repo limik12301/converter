@@ -1,10 +1,12 @@
-package services;
+package services.impl;
 
 
 import models.CurrencyRate;
 import models.UserInput;
 
 import enums.Currency;
+import services.ConvertCurrencyService;
+import services.CurrencyRateReadService;
 
 
 public class ConvertCurrencyServiceImpl implements ConvertCurrencyService {
@@ -13,9 +15,8 @@ public class ConvertCurrencyServiceImpl implements ConvertCurrencyService {
     @Override
     public Double convertCurrencyRub(UserInput userInput){
         CurrencyRate currencyRate = new CurrencyRate();
-        currencyRateReadService.readCurrencyRate();
-        currencyRate.setEur(currencyRateReadService.showCurrencyRate().getEur());
-        currencyRate.setUsd(currencyRateReadService.showCurrencyRate().getUsd());
+        currencyRate.setEur(currencyRateReadService.readCurrencyRate().getEur());
+        currencyRate.setUsd(currencyRateReadService.readCurrencyRate().getUsd());
 
         Currency currency = Currency.valueOf(userInput.currencyCode.toUpperCase());
         switch (currency) {

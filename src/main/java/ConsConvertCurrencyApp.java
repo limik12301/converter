@@ -1,16 +1,17 @@
-import services.ConvertCurrencyServiceImpl;
-import services.CurrencyInputServiceImpl;
+import services.UserInteraction;
+import services.impl.ConvertCurrencyServiceImpl;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import services.ConvertCurrencyService;
-import services.CurrencyInputService;
+import services.impl.UserInteractionImpl;
 
-public class ConsConvertCurrencyApp {
-    public void convertCurrencyRubCons() {
+public class ConsConvertCurrencyApp implements Runnable{
+
+    @Override
+    public void run() {
         ConvertCurrencyService convertCurrencyService = new ConvertCurrencyServiceImpl();
-        CurrencyInputService currencyInputService = new CurrencyInputServiceImpl();
-        currencyInputService.getUserInputCurrency();
+        UserInteraction userInteraction = new UserInteractionImpl();
         try {
-            System.out.println(convertCurrencyService.convertCurrencyRub(currencyInputService.showUserInputCurrency()));
+            System.out.println(convertCurrencyService.convertCurrencyRub(userInteraction.getUserInputCurrency()));
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }
