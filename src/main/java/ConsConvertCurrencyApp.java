@@ -5,7 +5,7 @@ import services.ConvertCurrencyService;
 import services.CurrencyInputService;
 
 public class ConsConvertCurrencyApp {
-    public void ConvertRub() {
+    public void convertCurrencyRubCons() {
         ConvertCurrencyService convertCurrencyService = new ConvertCurrencyServiceImpl();
         CurrencyInputService currencyInputService = new CurrencyInputServiceImpl();
         currencyInputService.getUserInputCurrency();
