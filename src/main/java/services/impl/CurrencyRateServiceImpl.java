@@ -10,13 +10,16 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class CurrencyRateServiceImpl implements CurrencyRateService {
-    ObjectMapper mapper = new ObjectMapper();
+    private final ObjectMapper mapper;
+
+    public CurrencyRateServiceImpl(ObjectMapper mapper) {
+        this.mapper = mapper;
+    }
 
     @Override
-    public CurrencyRate readCurrencyRate(){
-        String fileURL = ("C:\\Users\\nastya\\IdeaProjects\\converter\\src\\main\\resources\\value.json");
+    public CurrencyRate readCurrencyRate(String url) {
         StringBuilder jsonObject = new StringBuilder();
-        try (FileReader fr = new FileReader(fileURL)) {
+        try (FileReader fr = new FileReader(url)) {
             Scanner sc = new Scanner(fr);
             while (sc.hasNextLine()) {
                 jsonObject.append(sc.nextLine());

@@ -18,15 +18,13 @@ public class ConvertCurrencyServiceImpl implements ConvertCurrencyService {
 
     @Override
     public Double convertCurrencyRub(UserInput userInput){
-        CurrencyRate currencyRate = currencyRateService.readCurrencyRate();
+        String url = "src/main/resources/value.json";
+        CurrencyRate currencyRate = currencyRateService.readCurrencyRate(url);
 
         Currency currency = Currency.valueOf(userInput.currencyCode.toUpperCase());
-        switch (currency) {
-            case EUR:
-                return  userInput.getValue() / currencyRate.getEur();
-            case USD:
-                return  userInput.getValue() / currencyRate.getUsd();
-        }
-        throw new NullPointerException("Invalid currency code");
+        return switch (currency) {
+            case EUR -> userInput.getValue() / currencyRate.getEur();
+            case USD -> userInput.getValue() / currencyRate.getUsd();
+        };
     }
 }
