@@ -10,13 +10,15 @@ import services.CurrencyRateService;
 
 
 public class ConvertCurrencyServiceImpl implements ConvertCurrencyService {
-    private final CurrencyRateService currencyRateService = new CurrencyRateServiceImpl();
+    private final CurrencyRateService currencyRateService;
+
+    public ConvertCurrencyServiceImpl(CurrencyRateService currencyRateService) {
+        this.currencyRateService = currencyRateService;
+    }
 
     @Override
     public Double convertCurrencyRub(UserInput userInput){
-        CurrencyRate currencyRate = new CurrencyRate();
-        currencyRate.setEur(currencyRateService.readCurrencyRate().getEur());
-        currencyRate.setUsd(currencyRateService.readCurrencyRate().getUsd());
+        CurrencyRate currencyRate = currencyRateService.readCurrencyRate();
 
         Currency currency = Currency.valueOf(userInput.currencyCode.toUpperCase());
         switch (currency) {

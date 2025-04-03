@@ -1,10 +1,8 @@
 package services;
 
-import dto.CurrencyRateDTO;
 
-
-
+import models.CurrencyRate;
 
 public interface CurrencyRateService {
-    CurrencyRateDTO readCurrencyRate();
+    CurrencyRate readCurrencyRate();
 }
