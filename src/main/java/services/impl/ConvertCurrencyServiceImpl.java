@@ -6,17 +6,17 @@ import models.UserInput;
 
 import enums.Currency;
 import services.ConvertCurrencyService;
-import services.CurrencyRateReadService;
+import services.CurrencyRateService;
 
 
 public class ConvertCurrencyServiceImpl implements ConvertCurrencyService {
-    private final CurrencyRateReadService currencyRateReadService = new CurrencyRateReadServiceImpl();
+    private final CurrencyRateService currencyRateService = new CurrencyRateServiceImpl();
 
     @Override
     public Double convertCurrencyRub(UserInput userInput){
         CurrencyRate currencyRate = new CurrencyRate();
-        currencyRate.setEur(currencyRateReadService.readCurrencyRate().getEur());
-        currencyRate.setUsd(currencyRateReadService.readCurrencyRate().getUsd());
+        currencyRate.setEur(currencyRateService.readCurrencyRate().getEur());
+        currencyRate.setUsd(currencyRateService.readCurrencyRate().getUsd());
 
         Currency currency = Currency.valueOf(userInput.currencyCode.toUpperCase());
         switch (currency) {

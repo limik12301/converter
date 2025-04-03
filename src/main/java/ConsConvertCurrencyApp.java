@@ -11,7 +11,8 @@ public class ConsConvertCurrencyApp implements Runnable{
         ConvertCurrencyService convertCurrencyService = new ConvertCurrencyServiceImpl();
         UserInteraction userInteraction = new UserInteractionImpl();
         try {
-            System.out.println(convertCurrencyService.convertCurrencyRub(userInteraction.getUserInputCurrency()));
+            userInteraction.showOutput(convertCurrencyService
+                                      .convertCurrencyRub(userInteraction.getUserInput()).toString());
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }

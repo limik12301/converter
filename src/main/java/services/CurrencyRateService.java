@@ -2,9 +2,9 @@ package services;
 
 import dto.CurrencyRateDTO;
 
-import java.io.IOException;
 
 
-public interface CurrencyRateReadService {
+
+public interface CurrencyRateService {
     CurrencyRateDTO readCurrencyRate();
 }

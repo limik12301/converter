@@ -3,13 +3,13 @@ package services.impl;
 import dto.CurrencyRateDTO;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import services.CurrencyRateReadService;
+import services.CurrencyRateService;
 
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class CurrencyRateReadServiceImpl implements CurrencyRateReadService {
+public class CurrencyRateServiceImpl implements CurrencyRateService {
     ObjectMapper mapper = new ObjectMapper();
 
     @Override

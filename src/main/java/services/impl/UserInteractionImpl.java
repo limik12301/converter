@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class UserInteractionImpl implements UserInteraction {
 
     @Override
-    public UserInput getUserInputCurrency() {
+    public UserInput getUserInput() {
         System.out.println("Enter value: ");
         Scanner scanner = new Scanner(System.in);
         double value = scanner.nextDouble();
@@ -18,7 +18,7 @@ public class UserInteractionImpl implements UserInteraction {
     }
 
     @Override
-    public void showUserInputCurrency(String str) {
+    public void showOutput(String str) {
         System.out.println(str);
     }
 }
